@@ -1,0 +1,85 @@
+
+<LinearLayout 
+    android:orientation="vertical" 
+    android:id="@+id/linearLayout1" 
+    android:layout_width="fill_parent" 
+    android:layout_height="fill_parent" 
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<ScrollView
+		android:scrollbars="vertical"
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content" 
+		> 
+	 <LinearLayout 
+	    android:orientation="vertical" 
+	    android:layout_width="fill_parent" 
+	    android:layout_height="fill_parent" 
+	    >
+    	<TextView android:text="Nom de la Station" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    	<EditText android:singleLine="true" android:id="@+id/name" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+
+    	<TextView android:text="Numero de la Station" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    	<EditText android:singleLine="true" android:id="@+id/numero" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+
+		 <TextView android:text="Texte pour demarrer la station" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    	<EditText android:singleLine="true" android:id="@+id/demarrerConfiguration" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+
+		 <TextView android:text="Notification lors du démarrage de la station" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+		 <EditText android:singleLine="true" android:id="@+id/demarrerNotification" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+
+    	<TextView android:text="Texte pour arreter la station" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    	<EditText android:singleLine="true" android:id="@+id/arreterConfiguration" android:layout_width="fill_parent" android:layout_height="wrap_content" />    
+ 
+     	<TextView android:text="Notification lors de l'arret de la station" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    	<EditText android:singleLine="true" android:id="@+id/arreterNotification" android:layout_width="fill_parent" android:layout_height="wrap_content" />  
+
+
+
+    	<TextView
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:text="Ajouter un téléphone autorisé à contacter la station" />
+
+		<LinearLayout
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal" >
+
+		    <EditText
+		        android:id="@+id/tbAllowPhone"
+		        android:layout_width="209dp"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="0.50" />
+
+		    <Button
+		        android:id="@+id/baddAllowPhone"
+		        android:layout_width="50dp"
+		        android:layout_height="wrap_content"
+		        android:text="@string/b_add_allow_phone" />
+
+		    <Button
+		        android:id="@+id/bdelAllowPhone"
+		        android:layout_width="50dp"
+		        android:layout_height="wrap_content"
+		        android:text="@string/b_del_allow_phone" />
+		</LinearLayout>
+
+		<CheckBox
+		    android:id="@+id/checkBox1"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:text="@string/cb_active_send_options" 
+		    />
+	 
+    	<Button android:id="@+id/bValidStation" 
+		    android:text="@string/b_valid_form_conf" 
+		    android:layout_width="fill_parent" 
+		    android:layout_height="wrap_content" />   
+		<ListView
+   	    android:id="@+id/list2"
+   	    android:layout_width="fill_parent"
+   	    android:layout_height="wrap_content" />
+</LinearLayout>	   
+</ScrollView>	   	
+</LinearLayout>

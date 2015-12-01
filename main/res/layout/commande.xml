@@ -1,0 +1,102 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10px"
+        android:gravity="center_horizontal" >
+
+        <Button
+            android:id="@+id/imgDemarrer"
+            android:layout_width="wrap_content"
+            android:layout_height="67dp"
+            android:layout_weight="0.17"
+            android:background="@drawable/green"
+            android:text="Demarrer" />
+
+        <Button
+            android:id="@+id/imgArret"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.19"
+            android:background="@drawable/red"
+            android:text="Arreter" />
+
+    </LinearLayout>
+
+		<TextView
+		    android:id="@+id/numStationVueCommande"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_margin="10dp"
+		    android:text="@string/numStationVueCommande" />
+
+	<LinearLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_margin="10dp" >
+
+		<TextView 
+		android:id="@+id/stateStationVueCommande"
+		android:text="@string/statusStationVueCommande"
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		android:layout_gravity="center_vertical"
+		/>	
+		
+		<ImageView
+		android:id="@+id/imgStateStationVueCommande"
+		android:src="@drawable/statusnonok"
+		android:layout_width="30sp"
+		android:layout_height="30sp"
+		android:layout_gravity="center_vertical"
+		/>
+
+		<TextView
+		    android:id="@+id/textStatus"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:text="" />
+
+	</LinearLayout>
+
+	<LinearLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_margin="10dp"
+	    android:layout_marginTop="10px" >
+
+		<TextView
+		    android:id="@+id/textAlarm"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:text="@string/txt_alarm_state" />		<TextView
+		    android:id="@+id/stateAlarm"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:text="" />
+	</LinearLayout>
+
+	<LinearLayout
+	    android:id="@+id/linearLayout1"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:layout_gravity="bottom"
+	    android:baselineAligned="false"
+	    android:orientation="horizontal" >
+
+		<Button
+		    android:id="@+id/bAlarm"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_gravity="bottom"
+		    android:layout_marginTop="20dp"
+		    android:gravity="center"
+		    android:text="@string/b_add_alarme" />
+
+	</LinearLayout>
+	
+</LinearLayout>

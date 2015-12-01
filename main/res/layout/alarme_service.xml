@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content"
+        android:textSize="16px"
+        android:text="@string/subtitle_arlarme_view"/>
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date d'envoie : "
+            android:textSize="25px" />
+
+        <TextView
+            android:id="@+id/tDateView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="18px" />
+
+    </LinearLayout>
+
+	<TimePicker
+	    android:id="@+id/timePicker1"  
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		/>
+
+    <RadioGroup 
+        android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:id="@+id/QueGroup1">
+
+        <RadioButton
+	        android:id="@+id/rbStart"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:checked="true"
+	        android:text="@string/start_station" />
+	
+	    <RadioButton
+	        android:id="@+id/rbStop"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+			android:checked="false"
+	        android:text="@string/stop_station" />
+    </RadioGroup>
+
+    <Switch
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/b_start_alarme"
+        android:id="@+id/switch_alarm" />
+
+
+</LinearLayout>

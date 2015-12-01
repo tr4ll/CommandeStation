@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <EditTextPreference android:key="phone_number" android:title="@string/pref_numberphone" android:defaultValue="@string/def_pref_allow_phone"/>
+    <EditTextPreference android:key="text_action_start" android:title="@string/pref_txtactionstart" android:defaultValue="@string/def_pref_start"/>
+    <EditTextPreference android:key="text_action_stop" android:title="@string/pref_txtactionstop" android:defaultValue="@string/def_pref_stop"/>
+    <EditTextPreference android:key="text_is_start" android:title="@string/pref_txtistart" android:defaultValue="@string/def_pref_isstart"/>
+    <EditTextPreference android:key="text_is_stop" android:title="@string/pref_txtistop" android:defaultValue="@string/def_pref_isstop"/>
+</PreferenceScreen>
