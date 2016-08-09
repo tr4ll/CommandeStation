@@ -192,6 +192,7 @@ public class DBAdapter {
 	 */
 	public void update(String sqlQuery) {
 		db.rawQuery("UPDATE " + DATABASE_TABLE + sqlQuery, null);
+		Log.i("SQL_LITE", "QUERY:" + "UPDATE " + DATABASE_TABLE + sqlQuery);
 	}
 
 	/**

@@ -3,9 +3,13 @@ package fr.commandestation.main;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+
+import fr.commandestation.alarme.AlarmBroadcastReceiver;
+import fr.commandestation.outils.Outils;
 import fr.commandestation.sms.SMS;
 import fr.commandestation.station.Station;
 import android.app.Activity;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -49,7 +53,7 @@ public class Commande extends Activity {
 		} 
 		//On charge l'affichage commande.xml
 		setContentView(R.layout.commande);
-		//Affichage du titre de l'activit�
+		//Affichage du titre de l'activite
 		CharSequence titre = station.getNom();	
 		setTitle(titre);
 		
@@ -79,8 +83,8 @@ public class Commande extends Activity {
 		Log.i("LIFE_CYCLE","On Start Commande View");
 		//Toast.makeText(getApplicationContext(), "onStartCommande()", Toast.LENGTH_SHORT).show();
 		TextView txtStateAlarm = (TextView)findViewById(R.id.stateAlarm);
-		if (alarmIsSet())
-			txtStateAlarm.setText("Alarme Active");
+		if (alarmIsSet() && station.getAlarmeBean().getScheduleAlarm() != null)
+			txtStateAlarm.setText(Outils.convertTimeMiliToDateFr(station.getAlarmeBean().getScheduleAlarm().getTimeInMillis()));
 		else
 			txtStateAlarm.setText("Alarme Inactive");
 		
@@ -294,16 +298,13 @@ public class Commande extends Activity {
      */
     private boolean alarmIsSet()
     {
-    	try {
-			openFileInput("alarm"+station.getAlarmeId()+".serial");
-			return true;
-		} catch (FileNotFoundException e) {
-			return false;
-		}
-    	
-    }
+		//Appel au broadcastReceiver
+		Intent intentAlarm = new Intent(this, AlarmBroadcastReceiver.class);
+		//On creer le pending Intent qui identifie l'Intent de reveil avec un ID et un/des flag(s)
+		PendingIntent pendingintent = PendingIntent.getBroadcast(this, station.getAlarmeId(), intentAlarm, PendingIntent.FLAG_NO_CREATE);
+		return pendingintent != null;
+	}
 
-	  
 
 
 }

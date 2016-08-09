@@ -2,7 +2,10 @@ package fr.commandestation.main;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
+
+import fr.commandestation.alarme.Alarme;
 import fr.commandestation.station.Station;
 import fr.commandestation.bdd.*;
 import android.app.AlertDialog;
@@ -160,9 +163,9 @@ public class Acceuil extends ListActivity {
 	private Station loadData(String nomStation)
 	{
 		Station s = null;
-		//On requete la Base pour recupe les donn�es sur l
+		//On requete la Base pour recupe les donnees sur l
 		HashMap<String,String> result = new HashMap<String, String>();
-		result = query.getDataFields( new String[] {"NOM","NUMTEL","DEMARRER","ARRETER","DEMMARERNOTF","ARRETERNOTF","ALARMEID"},"NOM='" + nomStation +"'" ,null , null, null, "NOM", "ASC");
+		result = query.getDataFields( new String[] {"NOM","NUMTEL","DEMARRER","ARRETER","DEMMARERNOTF","ARRETERNOTF","ALARMEID","ALARME_TIME","ALARME_ACTION"},"NOM='" + nomStation +"'" ,null , null, null, "NOM", "ASC");
 
 		//Recup des valeurs de la bdd
 		String tel = result.get("NUMTEL");
@@ -171,10 +174,19 @@ public class Acceuil extends ListActivity {
 		String demNotif = result.get("DEMMARERNOTF");
 		String arrNotif = result.get("ARRETERNOTF");
 		String alarmeID = result.get("ALARMEID");
+		Alarme alarme = new Alarme();
+		alarme.setAction(Alarme.AlarmAction.getAlarmAction(result.get("ALARME_ACTION")));
+		if (result.get("ALARME_TIME") != null) {
+			Calendar cal=Calendar.getInstance();
+			cal.setTimeInMillis(Long.parseLong(result.get("ALARME_TIME")));
+			alarme.setScheduleAlarm(cal);
+		}
+
 		s = new Station(nomStation,tel,dem,arret);
 		s.setArreterNotif(arrNotif);
 		s.setDemarrerNotif(demNotif);
 		s.setAlarmeId(Integer.parseInt(alarmeID));
+		s.setAlarmeBean(alarme);
 		return s;
 		
 	}

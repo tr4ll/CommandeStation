@@ -15,7 +15,6 @@ public class AlarmBroadcastReceiver extends BroadcastReceiver{
 
 
 	private Station station;
-	private File f;
 
 	@Override
 	public void onReceive(Context context, Intent intent) {
@@ -26,19 +25,8 @@ public class AlarmBroadcastReceiver extends BroadcastReceiver{
 		try {
 			station.populate(serialStation);
 
-			//Log.i("TEST","station "+station.getNom()+" ACTION " +station.getMsgType());
-			f = x.getFileStreamPath("alarm"+station.getAlarmeId()+".serial");	
-			
+			Log.i("TEST","station "+station.getNom()+" ACTION " +station.getMsgType());
 			notificationManager.cancel(station.getAlarmeId());
-			
-
-			if (f.delete())
-				Log.i("REMOVE_FILE_BROADCAST","Remove File "+f.getAbsolutePath().toString());
-			else
-			{
-				Log.e("REMOVE_FILE_BROADCAST","Remove File "+f.getAbsolutePath().toString());
-				return;
-			}
 
 			Log.i("ACTION_BROADCAST",station.getMsgType());
 			if (station.getMsgType().contains("START"))
@@ -69,12 +57,14 @@ public class AlarmBroadcastReceiver extends BroadcastReceiver{
 			{
 				Log.e("ALARM_ACTIVE","Error Action "+station.getMsgType());
 			}
-		    
+
 		} catch (Exception e) {
 			Log.e("POPUL_ALARM_BROADCAST",e.toString() +" station "+station.getNom()+" ACTION " +station.getMsgType());
 		} 
 		
 	}
+
+
 	
 	
 }

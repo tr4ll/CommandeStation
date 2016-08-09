@@ -238,31 +238,19 @@ public class Configuration extends Activity {
 
 	}
 	public void updateStation(Station s) {
-		
-		query.removeRow("NUMTEL", numTelTmp);
-		query.appendData("NOM", s.getNom());
-		query.appendData("NUMTEL", s.getNumeroTel());
-		query.appendData("DEMARRER", s.getDemarrer());
-		query.appendData("ARRETER", s.getArreter());
-		query.appendData("ARRETERNOTF", s.getArreterNotif());
-		query.appendData("DEMMARERNOTF", s.getDemarrerNotif());
-		query.appendData("ALARMEID", Integer.toString(s.getAlarmeId()));
-		query.appendData("TELEPHONEAUTO", setStreamTelephone(s.getTelAutorise())); //Insertion d'une liste de tel
-		query.addRow();
-		
-		//TODO Bug lors de la maj de la ligne dans la BDD
-		/*
-		String sqlStatement = " SET NUMTEL='"+s.getNumeroTel()+"'," +
-				"NOM='"+s.getNom()+"'," +
-				"DEMARRER='"+s.getDemarrer()+"'," +
-						"ARRETER='"+s.getArreter()+"'," +
-								"DEMMARERNOTF='"+s.getDemarrerNotif()+"'," +
-										"ARRETERNOTF='"+s.getArreterNotif()+"'" +
-												" WHERE NUMTEL='"+numTelTmp+"'";
+		String sqlStatement = " SET "
+				+ "NUMTEL='"+s.getNumeroTel()+"',"
+				+ "NOM='"+s.getNom()+"',"
+				+ "DEMARRER='"+s.getDemarrer()+ "',"
+				+ "ARRETER='"+s.getArreter()+ "',"
+				+ "ARRETERNOTF='"+s.getArreterNotif()+ "',"
+				+ "DEMMARERNOTF='"+s.getDemarrerNotif()+ "',"
+				+ "ALARMEID='"+Integer.toString(s.getAlarmeId())+ "',"
+				+ "TELEPHONEAUTO='"+setStreamTelephone(s.getTelAutorise())+"'"
+				+ " WHERE NUMTEL='"+numTelTmp+"';";
 		query.updateRow(sqlStatement);
-		*/
-		Log.i("DATABASE","Update Station "+s.getNom());
 
+		Log.i("DATABASE","Update Station "+s.getNom());
 	}
 	
 	public boolean stationExists(Station s)

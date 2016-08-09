@@ -21,6 +21,8 @@ public class DatabaseInit {
 		champ.add("ARRETERNOTF");
 		champ.add("TELEPHONEAUTO");
 		champ.add("ALARMEID");
+		champ.add("ALARME_TIME");
+		champ.add("ALARME_ACTION");
 		nameBdd = "Station";
 		query = new DatabaseQuery(c, nameBdd, champ);
 

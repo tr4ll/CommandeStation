@@ -4,6 +4,8 @@ package fr.commandestation.station;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.commandestation.alarme.Alarme;
+
 public class Station extends CSerializable {
 
 
@@ -15,10 +17,11 @@ public class Station extends CSerializable {
 		private String demarrerNotif;
 		private String arreterNotif;
 		private String nom;
-		private int alarmeId;
+		private Integer alarmeId;
 		private String msgType;
 		private boolean status;
 		private List<String> telAutorise = new ArrayList<String>();
+		private Alarme alarmeBean = null;
 
 		
 		/**
@@ -32,11 +35,12 @@ public class Station extends CSerializable {
 	        setNumeroTel(object.getNumeroTel());
 	        setDemarrer(object.getDemarrer());
 	        setArreter(object.getArreter());
-	        setArreterNotif (object.getArreterNotif());
+	        setArreterNotif(object.getArreterNotif());
 	        setDemarrerNotif(object.getDemarrerNotif());
 	        setNom(object.getNom());
 	        setAlarmeId(object.getAlarmeId());
 	        setMsgType(object.getMsgType());
+			setAlarmeBean(object.getAlarmeBean());
 	        
 	    }
 	    
@@ -119,7 +123,7 @@ public class Station extends CSerializable {
 		 * 
 		 * @return le numero d'identifiant de l'alarme
 		 */
-		public int getAlarmeId() {
+		public Integer getAlarmeId() {
 			return alarmeId;
 		}
 
@@ -137,6 +141,14 @@ public class Station extends CSerializable {
 
 		public void setTelAutorise(List<String> telAutorise) {
 			this.telAutorise = telAutorise;
+		}
+
+		public Alarme getAlarmeBean() {
+			return alarmeBean;
+		}
+
+		public void setAlarmeBean(Alarme alarmeBean) {
+			this.alarmeBean = alarmeBean;
 		}
 }
 
